@@ -116,7 +116,7 @@ print(len(Abstracts), len(Introductions), len(Introductions_without_stopwords))
 data = pd.DataFrame(
         {'article': Introductions,
          'summary': Abstracts})
-data.to_csv('./test/b_dataset_3_train.csv', index=False)
+data.to_csv('b_dataset_3_train.csv', index=False)
 '''
 python  run_summarization_longformer.py --num_workers 12  --save_prefix eval_long16k_nooverlap_large --model_path facebook/bart-large-xsum --max_input_len 16368 --batch_size 2 --grad_accum 4 --grad_ckpt   --attention_mode sliding_chunks_no_overlap --attention_window 340 --val_every 0.333333333  --debug --resume summarization/run_long16k_nooverlap_large/_ckpt_epoch_3_v1.ckpt  --val_percent_check 1.0 --disable_checkpointing
 
